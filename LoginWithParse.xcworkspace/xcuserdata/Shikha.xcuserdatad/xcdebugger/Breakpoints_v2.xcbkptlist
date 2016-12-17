@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LoginWithParse/ViewController.swift"
-            timestampString = "503602971.875328"
+            timestampString = "503648988.052375"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
             landmarkName = "showAlert(title:message:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,12 +26,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LoginWithParse/ViewController.swift"
-            timestampString = "503602972.795309"
+            timestampString = "503648988.052375"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
             landmarkName = "showAlert(title:message:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LoginWithParse/SignUpViewController.swift"
+            timestampString = "503647847.581426"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "registerNewUser(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

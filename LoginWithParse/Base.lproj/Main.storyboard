@@ -181,7 +181,7 @@
                         <outlet property="email" destination="Ng3-Wd-8fE" id="bWt-eX-A5y"/>
                         <outlet property="password" destination="B2o-uq-97A" id="r2P-1K-3Xm"/>
                         <outlet property="userName" destination="HVc-7X-qkz" id="T2w-NW-Ik3"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="backToLogin" id="ZsG-Au-rll"/>
+                        <segue destination="fTI-5a-pp1" kind="show" identifier="swtichToHomeFromSignUp" id="0gz-N0-lLn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Lk-o4-N9c" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -223,20 +223,42 @@
                                     <action selector="logout:" destination="fTI-5a-pp1" eventType="touchUpInside" id="Sfv-5R-WG0"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jl4-Pw-Wh2">
+                                <rect key="frame" x="16" y="95" width="343" height="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Details" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gpF-LC-mV2">
+                                <rect key="frame" x="16" y="138" width="343" height="147"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.29451456669999998" green="0.38280317190000002" blue="0.6298621297" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="Jl4-Pw-Wh2" firstAttribute="trailing" secondItem="RuB-C7-nsU" secondAttribute="trailingMargin" id="2he-X2-w1L"/>
+                            <constraint firstItem="Jl4-Pw-Wh2" firstAttribute="top" secondItem="lf8-4e-Fth" secondAttribute="bottom" constant="75" id="2pS-d4-rBE"/>
+                            <constraint firstItem="gpF-LC-mV2" firstAttribute="top" secondItem="Jl4-Pw-Wh2" secondAttribute="bottom" constant="8" id="3yX-LS-hss"/>
                             <constraint firstItem="69r-2a-Yzg" firstAttribute="leading" secondItem="RuB-C7-nsU" secondAttribute="leading" id="5Nq-sv-0Un"/>
+                            <constraint firstItem="gpF-LC-mV2" firstAttribute="leading" secondItem="RuB-C7-nsU" secondAttribute="leadingMargin" id="Boh-OA-Of5"/>
                             <constraint firstItem="ifz-Tv-lQd" firstAttribute="top" secondItem="69r-2a-Yzg" secondAttribute="bottom" id="Gpp-qc-kpv"/>
                             <constraint firstItem="Zse-W0-v9N" firstAttribute="centerX" secondItem="RuB-C7-nsU" secondAttribute="centerX" id="K9o-J2-ykx"/>
                             <constraint firstItem="69r-2a-Yzg" firstAttribute="centerX" secondItem="RuB-C7-nsU" secondAttribute="centerX" id="UE4-k8-Vql"/>
                             <constraint firstItem="Zse-W0-v9N" firstAttribute="leading" secondItem="RuB-C7-nsU" secondAttribute="leadingMargin" id="e2p-BX-3JR"/>
+                            <constraint firstItem="Jl4-Pw-Wh2" firstAttribute="centerX" secondItem="RuB-C7-nsU" secondAttribute="centerX" id="epp-NZ-jUr"/>
                             <constraint firstItem="Zse-W0-v9N" firstAttribute="top" secondItem="lf8-4e-Fth" secondAttribute="bottom" id="fLU-RY-4d9"/>
                             <constraint firstItem="Zse-W0-v9N" firstAttribute="trailing" secondItem="RuB-C7-nsU" secondAttribute="trailingMargin" id="gUD-GE-Uq7"/>
+                            <constraint firstItem="Jl4-Pw-Wh2" firstAttribute="leading" secondItem="RuB-C7-nsU" secondAttribute="leadingMargin" id="qJa-KA-Vfb"/>
                             <constraint firstAttribute="trailing" secondItem="69r-2a-Yzg" secondAttribute="trailing" id="u6O-vE-u59"/>
+                            <constraint firstItem="gpF-LC-mV2" firstAttribute="centerX" secondItem="RuB-C7-nsU" secondAttribute="centerX" id="xRc-kp-mTz"/>
+                            <constraint firstItem="gpF-LC-mV2" firstAttribute="trailing" secondItem="RuB-C7-nsU" secondAttribute="trailingMargin" id="y0n-zT-AQR"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="detailsLabel" destination="gpF-LC-mV2" id="rJ0-zY-syX"/>
+                        <outlet property="userNameLabel" destination="Jl4-Pw-Wh2" id="3QP-dx-FRP"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="logout" id="NkO-XH-h6l"/>
                     </connections>
                 </viewController>
@@ -246,6 +268,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ZsG-Au-rll"/>
+        <segue reference="0gz-N0-lLn"/>
     </inferredMetricsTieBreakers>
 </document>

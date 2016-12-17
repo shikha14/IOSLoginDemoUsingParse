@@ -7,11 +7,25 @@
 //
 
 import UIKit
+import Parse
 
 class HomeViewController: UIViewController {
 
+    @IBOutlet weak var detailsLabel: UILabel!
+  
+    @IBOutlet weak var userNameLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let user = PFUser.current()
+        
+        guard user == nil else {
+            print(user)
+            userNameLabel.text = user?.username
+            detailsLabel.text = "Email id :"+(user?.email)!
+            return
+        }
+        
 
         // Do any additional setup after loading the view.
     }
@@ -23,6 +37,7 @@ class HomeViewController: UIViewController {
     
 
     @IBAction func logout(_ sender: Any) {
+        PFUser.logOut()
         performSegue(withIdentifier: "logout", sender: self)
     }
     /*

@@ -7,24 +7,63 @@
 //
 
 import UIKit
-
+import  Parse
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var email: UITextField!
+    
+    var alertDialog = UIAlertController()
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let user = PFUser.current()
+        
+        guard user == nil else {
+            performSegue(withIdentifier: "showHome", sender: self)
+            return
+        }
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     @IBAction func login(_ sender: Any) {
         if checkRequiredField(){
-            performSegue(withIdentifier: "showHome", sender: self)
+            
+            PFUser.logInWithUsername(inBackground: email.text!, password: password.text!, block: { (user, error) in
+                
+                if error != nil  {
+                    
+                    var defaultError = "Please try again later!!!"
+                    
+                    if let errorMessage = (error as! NSError).userInfo["error"] as? String
+                    {
+                        defaultError = errorMessage
+                    }
+                    self.showAlert(title: "Login Error", message: defaultError)
+                    
+                }else{
+                    
+                    self.showAlert(title: "Login Successful", message: "You have successfully Logged in",action: UIAlertAction(title: "Ok", style: .default, handler: { (action) in
+                        self.alertDialog.dismiss(animated: true, completion: nil)
+                        self.clearInputFields()
+                        self.performSegue(withIdentifier: "showHome", sender: self)
+                    }))
+                }
+                
+                
+            })
+            
+            
         }else{
             showAlert(title: "Error in login",message: "Please enter email and password")
         }
@@ -52,10 +91,25 @@ class ViewController: UIViewController {
         }))
         self.present(alertDialog, animated: true, completion: nil)
     }
-
+    
+    
+    func showAlert(title: String,message: String,action:UIAlertAction)
+    {
+        let alertDialog = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertDialog.addAction(action)
+        self.present(alertDialog, animated: true, completion: nil)
+    }
+    
+    
     @IBAction func signup(_ sender: Any) {
         performSegue(withIdentifier: "showSignUp", sender: self)
     }
-
+    
+    func clearInputFields()
+    {
+        email.text = ""
+        password.text = ""
+    }
+    
 }
 
