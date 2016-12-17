@@ -17,6 +17,8 @@ class SignUpViewController: UIViewController {
     
     var alertDialog = UIAlertController()
     
+    var activityIndicator  = UIActivityIndicatorView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,13 +36,16 @@ class SignUpViewController: UIViewController {
     @IBAction func registerNewUser(_ sender: Any) {
         if checkRequiredField() {
             
+            startActivityIndicator()
             let user = PFUser()
             
             user.email = email.text
             user.username  = userName.text
             user.password = password.text
             user.signUpInBackground(block: { (success, error) in
+                 self.stopActivityIndicator()
                 if error != nil && !success {
+                   
                     var message = "Please try again later!!!"
                     
                     if let errorMessage = (error as! NSError).userInfo["error"] as? String
@@ -101,4 +106,23 @@ class SignUpViewController: UIViewController {
         password.text = ""
     }
     
+    
+    func startActivityIndicator()
+    {
+        activityIndicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+        activityIndicator.center = view.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.activityIndicatorViewStyle = .whiteLarge
+        view.addSubview(activityIndicator)
+        UIApplication.shared.beginIgnoringInteractionEvents()
+        activityIndicator.startAnimating()
+    }
+    
+    
+    func stopActivityIndicator()
+    {
+        UIApplication.shared.endIgnoringInteractionEvents()
+        activityIndicator.stopAnimating()
+        
+    }
 }

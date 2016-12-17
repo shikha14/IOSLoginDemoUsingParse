@@ -23,6 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             ParseMutableClientConfiguration.clientKey = "masterkey"
             ParseMutableClientConfiguration.server = "https://xyz.herokuapp.com/parse"
             
+           
+            
         })
         
         Parse.initialize(with: parseConfiguration)

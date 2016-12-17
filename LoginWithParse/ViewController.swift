@@ -13,6 +13,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var email: UITextField!
     
+    
+    var activityIndicator = UIActivityIndicatorView()
+    
     var alertDialog = UIAlertController()
     
     
@@ -38,8 +41,11 @@ class ViewController: UIViewController {
     
     @IBAction func login(_ sender: Any) {
         if checkRequiredField(){
+            startActivityIndicator()
             
             PFUser.logInWithUsername(inBackground: email.text!, password: password.text!, block: { (user, error) in
+                
+                self.stopActivityIndicator()
                 
                 if error != nil  {
                     
@@ -109,6 +115,25 @@ class ViewController: UIViewController {
     {
         email.text = ""
         password.text = ""
+    }
+    
+    func startActivityIndicator()
+    {
+        activityIndicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+        activityIndicator.center = view.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.activityIndicatorViewStyle = .whiteLarge
+        view.addSubview(activityIndicator)
+        UIApplication.shared.beginIgnoringInteractionEvents()
+        activityIndicator.startAnimating()
+    }
+    
+    
+    func stopActivityIndicator()
+    {
+        UIApplication.shared.endIgnoringInteractionEvents()
+        activityIndicator.stopAnimating()
+        
     }
     
 }
